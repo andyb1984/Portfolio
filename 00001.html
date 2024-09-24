@@ -35,8 +35,41 @@
 </head>
 
 <body>
-<iframe src="https://andyb1984.github.io/Portfolio_draft/Documents/EMA_Creating&SustainingValue.pdf" width="600" height="400"></iframe>
 
+
+<script src="https://mozilla.github.io/pdf.js/build/pdf.min.js"></script>
+
+<div id="pdfViewer"></div>
+
+<script>
+  // Get the PDF document
+  pdfjsLib.getDocument('https://andyb1984.github.io/Portfolio_draft/Documents/EMA_Creating&SustainingValue.pdf').then(function(pdf) {
+
+    // Get the first page
+    pdf.getPage(1).then(function(page) {
+
+      // Set the viewport
+      var viewport = page.getViewport({ scale: 1.5 });
+
+      // Create a canvas element
+      var canvas = document.getElementById('pdfViewer');
+      var context = canvas.getContext('2d');
+
+      // Set the canvas size
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      // Render the page
+      page.render({
+        canvasContext: context,
+        viewport: viewport
+      }).promise.then(function()   
+ {
+        // PDF rendered successfully
+      });
+    });
+  });
+</script>
 
 </body>
 
