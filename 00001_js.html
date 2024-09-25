@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+<link rel="stylesheet" type="text/css" href="00001_Background.css"   
+ />
+ <style type="text/css">
+
+.auto-style1 {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: x-large;
+
+	text-align: center;}
+
+.auto-style2 {
+
+	border-width: 0px;
+
+}
+
+.auto-style3 {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: xx-large;
+
+	text-align: center;
+
+}
+
+.auto-style4 {
+
+	text-align: center;
+
+}
+
+</style>
+</head>
+<body>
+<div>
+<p class="auto-style3"><strong>Creating and Sustaining Value</strong> </p>
+	<p class="auto-style1"><a href="index.html">
+	<img alt="Preview" height="163" src="Buttons/Preview.png" width="366" class="auto-style2" /></a>&nbsp;</p>
+</div>
+
+<!TOP TEST>
+
+<head>
+  <title>PDF Viewer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfjs-dist/3.0.205/pdf.min.js"></script>
+  <style>
+    #pdfContainer {
+      border: 10px solid #ccc;
+      padding: 10px;
+      width: 800px;
+      height: auto; /* Set height to auto to accommodate PDF size */
+      margin: 0 auto;
+      overflow: auto; /* Enable scrolling if content exceeds the container */
+    }
+    #errorContainer {
+      color: red;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="pdfContainer">
+    <canvas id="pdfViewer"></canvas>
+  </div>
+  <div id="errorContainer" style="display: none;"></div>
+  
+  <script>
+    // Load the PDF document
+    const url = '..documents/test.pdf'; // Ensure this path is correct
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+      // Get the first page
+      pdf.getPage(1).then(function(page) {
+        // Set the viewport
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.getElementById('pdfViewer');
+        const context = canvas.getContext('2d');
+
+        // Set the canvas size
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        // Render the page
+        page.render({
+          canvasContext: context,
+          viewport: viewport
+        }).promise.then(function() {
+          // PDF rendered successfully
+          document.getElementById('errorContainer').style.display = 'none';
+        }).catch(function(error) {
+          // Handle PDF rendering error
+          showError(error);
+        });
+      });
+    }).catch(function(error) {
+      // Handle PDF loading error
+      showError(error);
+    });
+
+    function showError(error) {
+      const errorContainer = document.getElementById('errorContainer');
+      errorContainer.style.display = 'block';
+      errorContainer.textContent = "Error loading PDF: " + error.message;
+    }
+  </script>
+</body>
+
+
+
+<!BASE TEST>
+<p class="auto-style3"><strong>Andrew Botsford</strong> </p>
+</body>
+</html>
+
