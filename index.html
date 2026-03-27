@@ -73,60 +73,6 @@
     </p>
   </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Visit Counter</title>
-
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f2f2f2;
-      font-family: Arial, sans-serif;
-    }
-
-    .box {
-      background: white;
-      padding: 40px 60px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0 0 15px 0;
-    }
-
-    .count {
-      font-size: 28px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="box">
-    <h1>Page Visits</h1>
-    <div class="count">
-      <span id="counter">Loading...</span>
-    </div>
-  </div>
-
-  <script>
-    fetch('https://api.countapi.xyz/hit/andrew-site/home')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('counter').textContent = data.value;
-      });
-  </script>
-
-</body>
-</html>
 
 
 
