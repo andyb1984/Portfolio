@@ -73,7 +73,15 @@
     </p>
   </div>
 
-      
+   <p>Total visits: <span id="counter">Loading...</span></p>
+
+<script>
+fetch('https://api.countapi.xyz/hit/andrew-site/home')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('counter').textContent = data.value;
+  });
+</script>   
 
 
 
