@@ -73,7 +73,37 @@
     </p>
   </div>
 
+<!-- Visit Counter -->
+<div style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+">
+  <div style="
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  ">
+    <div style="font-size: 18px; margin-bottom: 8px;">Page visits</div>
+    <div style="font-size: 24px; font-weight: bold;" id="counter">Loading…</div>
+  </div>
+</div>
 
+<script>
+fetch('https://api.countapi.xyz/hit/andrew-site/home')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('counter').textContent = data.value;
+  })
+  .catch(err => {
+    document.getElementById('counter').textContent = '—';
+    console.error('Counter error', err);
+  });
+</script>
 
 
 </body>
